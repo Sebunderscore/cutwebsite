@@ -77,10 +77,6 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .section-inner--wide { max-width: 1020px; }
 
-.section--home    { background-image: url('../img/bg-home.gif'); }
-.section--shows   { background-image: url('../img/bg-shows.gif'); }
-.section--music   { background-image: url('../img/bg-music.gif'); }
-.section--contact { background-image: url('../img/bg-contact.gif'); }
 
 .section--home    { min-height: max(89vw, 100vh); }
 .section--shows   { min-height: 61vw; }
@@ -217,9 +213,9 @@ h1 {
 .band h2 { text-align: center; margin-bottom: 48px; }
 .band--light { background: #f3f3f3; }
 .band--rule { padding-top: 0; }
-.band--dark  { background: #6b6b6b url('../img/bg-music.gif') center / cover; }
+.band--dark  { background: var(--night, #0c0e17); }
 .band--dark h2 { color: #fff; }
-.band--grain { background: #ececec url('../img/bg-shows.gif') center / cover; }
+.band--grain { background: #ececec; }
 
 /* Showreel */
 .reel {
@@ -270,7 +266,7 @@ h1 {
 a.card:hover .card-media img { transform: scale(1.03); }
 .card-media--type {
   display: flex; align-items: center; justify-content: center; padding: 20px;
-  background: #6b6b6b url('../img/bg-music.gif') center / cover;
+  background: var(--night, #0c0e17);
 }
 .card-type {
   color: #fff; text-align: center;
