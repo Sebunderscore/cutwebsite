@@ -42,6 +42,12 @@ const SHOWS = [
   }
 
   if (!shows.length) { hide(); return; }
+
+  // Met shows: Music verhuist naar rechts van het logo, zodat het menu symmetrisch blijft
+  const right = document.querySelector('.nav-right');
+  document.querySelectorAll('.nav-left a[href$="#music"]').forEach(a => {
+    if (right) right.insertBefore(a.parentElement, right.firstElementChild);
+  });
   if (!list) return; // andere pagina's: alleen de menuknop regelen
 
   shows.sort((a, b) => a.date.localeCompare(b.date));
