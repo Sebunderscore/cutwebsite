@@ -10,6 +10,8 @@ const BANDSINTOWN_URL = 'https://www.bandsintown.com/a/8626694-cut_';
 const BANDSINTOWN_ARTIST = 'id_8626694';
 const BANDSINTOWN_APP_ID = '0c2dafdd15425edebafb11e802af1350';
 const SHOWS = [
+  // TESTSHOW: verwijderen voor de domeinwissel
+  { date: '2026-12-31', city: 'Amsterdam', country: 'NL', venue: 'Testlocatie', tickets: 'https://www.bandsintown.com/a/8626694-cut_' },
 ];
 
 (async function () {
