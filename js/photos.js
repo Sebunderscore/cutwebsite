@@ -1,5 +1,8 @@
 // ABOUT-FOTO: bij elke klik de volgende foto.
 // Nieuwe foto toevoegen: zet een staand 4:5-bestand (1200x1500) in img/ en voeg de naam hieronder toe.
+// Automatisch wisselen: elke AUTO_MS milliseconden (0 = uit).
+const AUTO_MS = 8000;
+
 const ABOUT_PHOTOS = [
   { src: 'img/cut-duo-1.jpg', alt: 'Belle Doron and Sebastiaan Dutilh of CUT_ in pink tracksuits in a forest, each holding a white egg' },
   { src: 'img/cut-duo-4.jpg', alt: 'Belle and Sebastiaan of CUT_ in black and silver coats against a dark, overgrown wall' },
@@ -20,7 +23,7 @@ const ABOUT_PHOTOS = [
   const preload = n => { const p = new Image(); p.src = ABOUT_PHOTOS[n % ABOUT_PHOTOS.length].src; };
   preload(1);
 
-  btn.addEventListener('click', () => {
+  const show = () => {
     i = (i + 1) % ABOUT_PHOTOS.length;
     img.style.opacity = 0;
     setTimeout(() => {
@@ -31,5 +34,17 @@ const ABOUT_PHOTOS = [
       if (img.complete) img.style.opacity = 1;
       preload(i + 1);
     }, 180);
-  });
+  };
+
+  // Automatisch: alleen als de foto in beeld is en het tabblad open staat.
+  // Na een klik begint de 8 seconden opnieuw.
+  let timer = null, inView = false;
+  const stop = () => { clearInterval(timer); timer = null; };
+  const start = () => { stop(); if (AUTO_MS && inView && !document.hidden) timer = setInterval(show, AUTO_MS); };
+
+  btn.addEventListener('click', () => { show(); start(); });
+  document.addEventListener('visibilitychange', start);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => { inView = entries[0].isIntersecting; start(); }, { threshold: 0.3 }).observe(btn);
+  } else { inView = true; start(); }
 })();
