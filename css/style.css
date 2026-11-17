@@ -371,7 +371,7 @@ canvas.glyphs { position: absolute; inset: 0; width: 100%; height: 100%; z-index
 .about { position: relative; background: #f3f3f3; padding: 120px 0; }
 .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
 .about-photo { margin: 0; }
-.about-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 29% 30%; }
+.about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 42%; }
 .about-text { background: #f3f3f3; padding: 26px 0; }
 .about-text h2 { margin-bottom: 22px; }
 .about-text p { margin: 0 0 1.1em; color: #4a4a4a; line-height: 1.8; }
