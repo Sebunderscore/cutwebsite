@@ -83,7 +83,12 @@
     <section id="about" class="about">
       <canvas class="glyphs" data-color="rgba(40,40,40,.5)" data-cell="210" data-avoid=".about-text"></canvas>
       <div class="wrap about-grid">
-        <figure class="about-photo"><img src="img/cut-duo.jpg" alt="Belle Doron and Sebastiaan Dutilh of CUT_ in pink tracksuits in a forest, each holding a white egg" loading="lazy"></figure>
+        <figure class="about-photo">
+          <button type="button" class="photo-cycle" aria-label="Show another photo of CUT_">
+            <img src="img/cut-duo-1.jpg" alt="Belle Doron and Sebastiaan Dutilh of CUT_" loading="lazy" width="1200" height="1500">
+          </button>
+          <figcaption class="photo-count" aria-hidden="true">1 / 5</figcaption>
+        </figure>
         <div class="about-text">
           <h2>About</h2>
           <p class="bio-lead">CUT_ is Belle Doron and Sebastiaan Dutilh, an electronic duo from Amsterdam.</p>
@@ -161,5 +166,6 @@
   <script src="js/shows.js"></script>
   <script src="js/glyphs.js"></script>
   <script src="js/nav.js"></script>
+  <script src="js/photos.js"></script>
 </body>
 </html>
